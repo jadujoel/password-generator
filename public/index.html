@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#404040">
+<meta name="description" content="A password generator.">
+<title>Password</title>
+<textarea id="password"></textarea>
+<button id="copy" onclick="copy()">Copy</button>
+<script defer>
+  const textarea = document.getElementById('password')
+  const n = 16
+  let password = ''
+  for (let i = 0; i < n; i++) {
+    const rand = Math.floor(Math.random() * 94) + 33
+    const char = String.fromCharCode(rand)
+    password += char
+  }
+  textarea.value = password
+  copy()
+  function copy() {
+    textarea.select()
+    document.execCommand('copy')
+  }
+</script>
+<style>
+  * {
+    color: white;
+    font-size: 1.8em;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: #303030;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+  }
+
+  button {
+    font-size: larger;
+    background-color: #303030;
+  }
+
+  textarea {
+    background-color: #202020;
+    color: white;
+    border: none;
+    resize: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+</style>
